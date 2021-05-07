@@ -30,5 +30,10 @@ export default {
     height: 30pt;
     border: 1pt solid lightgray;
     display: block;
+    line-height: 30pt;
+    text-align: center;
+    font-family: monospace;
+    font-size: 20pt;
+    cursor: pointer;
 }
 </style>
