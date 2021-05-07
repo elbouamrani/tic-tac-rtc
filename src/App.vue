@@ -8,8 +8,6 @@
         <div>
             <button @click="joinRoom()">join</button>
             &nbsp;|&nbsp;
-            <button @click="gridStart()">start</button>
-            &nbsp;|&nbsp;
             <button @click="gridReset()">reset</button>
         </div>
         <hr />
@@ -68,14 +66,6 @@ export default {
         },
         joinRoom() {
             this.rtcservice.openOrJoin(this.roomName, {
-                type: "start",
-                payload: {
-                    iam: this.iam,
-                },
-            });
-        },
-        gridStart() {
-            this.rtcservice.broadcastMessage({
                 type: "start",
                 payload: {
                     iam: this.iam,
