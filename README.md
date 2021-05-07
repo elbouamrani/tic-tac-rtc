@@ -8,7 +8,7 @@ This project is based on the signaling server [RTCMultiConnection](https://rtcmu
 
 ### TODO
 
-[ ] - Better connection management
-[ ] - Presence Channel
-[ ] - Create Rooms
-[ ] - Lobby Chat
+-   [ ] Better connection management
+-   [ ] Presence Channel
+-   [ ] Create Rooms
+-   [ ] Lobby Chat
