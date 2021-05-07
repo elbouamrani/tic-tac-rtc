@@ -79,3 +79,11 @@ export default {
     },
 };
 </script>
+
+<style>
+#app {
+    padding: 5pt;
+    width: 200pt;
+    height: 160pt;
+}
+</style>
