@@ -1,24 +1,7 @@
-# tictacrtc
+# tic-tac-rtc
 
-## Project setup
-```
-npm install
-```
+A p2p Tic Tac Toe implementation over WebRTC and Vuejs.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This project is based on the signaling server [RTCMultiConnection](https://rtcmulticonnection.org/)
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![p2p Tic Tac Toe](https://github.com/elbouamrani/tic-tac-rtc/blob/main/public/gameplay.gif)
