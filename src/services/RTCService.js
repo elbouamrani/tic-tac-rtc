@@ -28,7 +28,7 @@ const RTCService = {
 		this.connection.session = this.config.session;
 		this.connection.iceServers = this.config.iceServers;
 		// this.connection.autoCreateMediaElement = false;
-		// this.connection.enableLogs = true;
+		this.connection.enableLogs = false;
 
 		this.callbacks = callbacks;
 
@@ -37,15 +37,24 @@ const RTCService = {
 		return this;
 	},
 	registerEventHandlers() {
-		this.connection.onopen = () => {
-			console.log("onopen");
-		};
+		// this.connection.onopen = () => {
+		// 	console.log("onopen");
+		// };
 		this.connection.onmessage = (event) => {
 			this.handleMessage(event);
 		};
 	},
-	openOrJoin(roomName) {
-		this.connection.openOrJoin(roomName);
+	openOrJoin(roomName, joinMessage) {
+		this.connection.checkPresence(roomName, (isRoomExist, roomName) => {
+			if (isRoomExist === true) {
+				this.connection.join(roomName);
+				setTimeout(() => {
+					this.broadcastMessage(joinMessage);
+				}, 1000);
+			} else {
+				this.connection.open(roomName);
+			}
+		});
 	},
 	broadcastMessage(message) {
 		this.connection.send(message);

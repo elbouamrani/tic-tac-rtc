@@ -12,7 +12,7 @@ const TicTacEngine = {
 			[null, null, null],
 		];
 	},
-	move(turn, i, j) {
+	move(turn, [i, j]) {
 		if (turn != this.turn) return;
 		if (this.grid[i][j] != null) return;
 

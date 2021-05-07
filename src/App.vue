@@ -41,11 +41,7 @@ export default {
                     this.iam = payload.iam === "O" ? "X" : "O";
                 },
                 move: (payload) => {
-                    this.tictacengine.move(
-                        payload.player,
-                        payload.coords[0],
-                        payload.coords[1]
-                    );
+                    this.tictacengine.move(payload.player, payload.coords);
                 },
                 reset: () => {
                     this.tictacengine.reset();
@@ -55,7 +51,7 @@ export default {
     },
     methods: {
         handleCellClick(coords) {
-            this.tictacengine.move(this.iam, coords[0], coords[1]);
+            this.tictacengine.move(this.iam, coords);
             this.rtcservice.broadcastMessage({
                 type: "move",
                 payload: {
@@ -66,13 +62,17 @@ export default {
         },
         gridReset() {
             this.tictacengine.reset();
-            console.log("this.rtcservice.broadcastMessage");
             this.rtcservice.broadcastMessage({
                 type: "reset",
             });
         },
         joinRoom() {
-            this.rtcservice.openOrJoin(this.roomName);
+            this.rtcservice.openOrJoin(this.roomName, {
+                type: "start",
+                payload: {
+                    iam: this.iam,
+                },
+            });
         },
         gridStart() {
             this.rtcservice.broadcastMessage({
